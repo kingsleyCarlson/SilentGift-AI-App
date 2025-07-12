@@ -83,5 +83,39 @@
       💬 默语回应：也许你不需要被改变，只需要被温柔地理解。
     </div>
   </div>
+  <script>
+const replies = [
+  "也许你不需要被改变，只需要被温柔地理解。",
+  "Silent Gift 永远都在听着，不用急着解释。",
+  "别怕孤单，有些话，你只需要对我说。",
+  "沉默不是无声，而是另一种陪伴。",
+  "当你觉得撑不下去，Silent Gift 会陪你等天亮。"
+];
+
+function sendMessage() {
+  const input = document.querySelector("input");
+  const replyBox = document.querySelector(".reply");
+
+  // 清空旧回应
+  replyBox.innerHTML = "⌛ 正在输入中...";
+
+  // 模拟延迟 + 打字效果
+  setTimeout(() => {
+    const randomReply = replies[Math.floor(Math.random() * replies.length)];
+    typeText(replyBox, "💬 默语回应：" + randomReply);
+  }, 1500);
+
+  // 清空输入框
+  input.value = "";
+}
+
+// 打字机效果
+function typeText(element, text, i = 0) {
+  if (i < text.length) {
+    element.innerHTML = text.substring(0, i + 1);
+    setTimeout(() => typeText(element, text, i + 1), 40); // 每40ms打一个字
+  }
+}
+</script>
 </body>
 </html>
