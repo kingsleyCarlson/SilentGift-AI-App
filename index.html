@@ -1,33 +1,87 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <title>Silent Gift 默语AI</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silent Gift · 默语AI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(ellipse at center, #1d1d1d 0%, #0d0d0d 100%);
+      color: white;
+    }
+    .container {
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.03);
+    }
+    h2 {
+      text-align: center;
+      font-weight: normal;
+      letter-spacing: 1px;
+    }
+    .intro {
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: inset 0 0 10px rgba(255,255,255,0.1);
+      margin-top: 30px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .input-box {
+      margin-top: 25px;
+    }
+    input {
+      width: 80%;
+      padding: 12px 15px;
+      font-size: 14px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      margin-right: 10px;
+      background: rgba(255,255,255,0.05);
+      color: white;
+    }
+    button {
+      padding: 12px 20px;
+      border: none;
+      background: linear-gradient(145deg, #03c2fc, #035bfc);
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 15px rgba(3,123,252,0.5);
+      cursor: pointer;
+    }
+    .reply {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+      font-size: 13px;
+      font-style: italic;
+      color: #aaa;
+    }
+  </style>
 </head>
-<body
-  <div class="logo">Silent Gift · 默语AI</div>
+<body>
   <div class="container">
-    <h1>Silent Gift · 默语AI</h1>
-    <div class="chatbox" id="chatbox">
-      <p class="bot">👋 欢迎来到默语AI，我在这里倾听你。</p>
+    <h2>🪐 Silent Gift · 默语</h2>
+    <div class="intro">
+      🌌 欢迎来到默语，一个能听懂你沉默的地方。你可以随意输入文字，我们将用 Silent Gift 的方式回应你。
     </div>
-    <div class="input-area">
-    <input
-  type="text"
-  id="userInput"
-  placeholder="我想对你说点什么..."
-      <button onclick="sendMessage()">发送</button>
+    <div class="input-box">
+      <input type="text" placeholder="在这里输入你的想法..." />
+      <button>发送</button>
     </div>
-<!-- chat 区域结束 -->
-</div>
-
-<!-- 背景音乐 -->
-<audio id="bgm" autoplay loop>
-  <source src="你的音频地址.mp3" type="audio/mpeg">
-</audio>
-
-<!-- 脚本引入 -->
- <script src="main.js?v=2"></script>  
+    <div class="reply">
+      💬 默语回应：也许你不需要被改变，只需要被温柔地理解。
+    </div>
+  </div>
 </body>
 </html>
