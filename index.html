@@ -13,7 +13,11 @@
       <p class="bot">👋 欢迎来到默语AI，我在这里倾听你。</p>
     </div>
     <div class="input-area">
-      <input type="text" id="userInput" placeholder="写下你想说的话...">
+    <input
+  type="text"
+  id="userInput"
+  placeholder="我想对你说点什么..."
+  onkeydown="if (event.key === 'Enter') { sendMessage(); }"
       <button onclick="sendMessage()">发送</button>
     </div>
 <!-- chat 区域结束 -->
