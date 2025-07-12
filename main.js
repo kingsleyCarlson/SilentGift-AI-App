@@ -22,12 +22,22 @@ function sendMessage() {
     userMessage.innerText = "你： " + message;
     chatbox.appendChild(userMessage);
 
-    // 模拟回应
-    const botMessage = document.createElement("p");
-    botMessage.className = "bot";
-    const response = responses[Math.floor(Math.random() * responses.length)];
-    botMessage.innerText = "默语： " + response;
-    chatbox.appendChild(botMessage);
+   // 模拟回应
+const loadingMessage = document.createElement("div");
+loadingMessage.className = "bot";
+loadingMessage.innerText = "默语AI 正在输入中...";
+chatbox.appendChild(loadingMessage);
+
+// 模拟等待 1.5 秒后显示回应
+setTimeout(() => {
+  chatbox.removeChild(loadingMessage); // 移除加载文字
+  const response = responses[Math.floor(Math.random() * responses.length)];
+  const botMessage = document.createElement("div");
+  botMessage.className = "bot";
+  botMessage.innerText = "默语AI: " + response;
+  chatbox.appendChild(botMessage);
+  chatbox.scrollTop = chatbox.scrollHeight;
+}, 1500);
 
     // 清空输入框
     input.value = "";
