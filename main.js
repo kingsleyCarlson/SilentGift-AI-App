@@ -19,12 +19,27 @@ function sendMessage() {
     // 显示用户讯息
     const userMessage = document.createElement("p");
     userMessage.className = "user";
-    userMessage.innerText = "你： " + message;
+    userMessage.innerText = "你：" + message;
     chatbox.appendChild(userMessage);
 
-   // 模拟回应
-const loadingMessage = document.createElement("div");
-loadingMessage.className = "bot";
+    // 模拟回应（未来可改为ChatGPT回应）
+    const response = "我在这里，默默听你说。";
+    const botMessage = document.createElement("p");
+    botMessage.className = "bot";
+    botMessage.innerText = response;
+    chatbox.appendChild(botMessage);
+
+    // ✅ AI 发声回应
+    const utterance = new SpeechSynthesisUtterance(response);
+    utterance.lang = "zh-CN"; // 中文
+    utterance.pitch = 1;
+    utterance.rate = 1;
+    speechSynthesis.speak(utterance);
+
+    // 清空输入框
+    input.value = "";
+  }
+}
 loadingMessage.innerText = "默语AI 正在输入中...";
 chatbox.appendChild(loadingMessage);
 
