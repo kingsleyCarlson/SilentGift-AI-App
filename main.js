@@ -10,11 +10,48 @@ const responses = [
   "沉默不等于无声，默语在听。"
 ];
 
+
 function sendMessage() {
   const input = document.getElementById("userInput");
   const chatbox = document.getElementById("chatbox");
   const message = input.value.trim();
+  // 👤 记录用户名字（第一次输入会当作名字）
+  if (!localStorage.getItem("userName")) {
+    localStorage.setItem("userName", message);
 
+    const welcome = document.createElement("div");
+    welcome.className = "bot";
+    welcome.innerText = `嗨，${message}。Silent Gift 很高兴见到你。`;
+    chatbox.appendChild(welcome);
+
+    input.value = "";
+    return; // 不继续往下执行
+  }
+  if (message !== "") {
+    // 显示用户讯息
+    const userMessage = document.createElement("p");
+    userMessage.className = "user";
+    userMessage.innerText = "你：" + message;
+    chatbox.appendChild(userMessage);
+
+    // 模拟回应（未来可改为ChatGPT回应）
+    const response = "我在这里，默默听你说。";
+    const botMessage = document.createElement("p");
+    botMessage.className = "bot";
+    botMessage.innerText = response;
+    chatbox.appendChild(botMessage);
+
+    // ✅ AI 发声回应
+    const utterance = new SpeechSynthesisUtterance(response);
+    utterance.lang = "zh-CN"; // 中文
+    utterance.pitch = 1;
+    utterance.rate = 1;
+    speechSynthesis.speak(utterance);
+
+    // 清空输入框
+    input.value = "";
+  }
+}
   if (message !== "") {
     // 显示用户讯息
     const userMessage = document.createElement("p");
