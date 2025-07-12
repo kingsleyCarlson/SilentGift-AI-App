@@ -1,6 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(#0f2027, #203a43, #2c5364);
+  font-family: 'Helvetica', sans-serif;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
   color: white;
   margin: 0;
   padding: 0;
@@ -8,6 +8,8 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .container {
