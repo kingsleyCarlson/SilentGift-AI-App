@@ -109,3 +109,8 @@ function typeText(element, text, delay = 50) {
     }
   }, delay);
 }
+document.getElementById("userInput").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    sendMessage();
+  }
+});
