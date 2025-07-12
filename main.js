@@ -32,9 +32,9 @@ chatbox.appendChild(loadingMessage);
 setTimeout(() => {
   chatbox.removeChild(loadingMessage); // 移除加载文字
   const response = responses[Math.floor(Math.random() * responses.length)];
-  const botMessage = document.createElement("div");
-  botMessage.className = "bot";
-  botMessage.innerText = "默语AI: " + response;
+  botMessage.innerText = "默语AI: ";
+chatbox.appendChild(botMessage);
+typeText(botMessage, " " + response); // 加一个空格让回应更自然
   chatbox.appendChild(botMessage);
   chatbox.scrollTop = chatbox.scrollHeight;
 }, 1500);
@@ -45,4 +45,15 @@ setTimeout(() => {
     // 滚动到底部
     chatbox.scrollTop = chatbox.scrollHeight;
   }
+}
+function typeText(element, text, delay = 50) {
+  let index = 0;
+  const interval = setInterval(() => {
+    if (index < text.length) {
+      element.innerText += text.charAt(index);
+      index++;
+    } else {
+      clearInterval(interval);
+    }
+  }, delay);
 }
